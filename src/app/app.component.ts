@@ -9,16 +9,16 @@ export class AppComponent {
   title = 'DequeProject';
   
 
-  addFirst(element:any){
+  addFirstFunc(element:any){
     console.log(element);
   }
-  offerFirst(element:any){
+  offerFirstFunc(element:any){
     console.log(element);
   }
-  addLast(element:any){
+  addLastFunc(element:any){
     console.log(element);
   }
-  offerLast(element:any){
+  offerLastFunc(element:any){
     console.log(element);
   }
 }
