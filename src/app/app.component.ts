@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DequeProject';
+  
+
+  addFirst(element:any){
+    console.log(element);
+  }
+  offerFirst(element:any){
+    console.log(element);
+  }
+  addLast(element:any){
+    console.log(element);
+  }
+  offerLast(element:any){
+    console.log(element);
+  }
 }
