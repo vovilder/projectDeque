@@ -1,7 +1,7 @@
 export class Deque {
     private deque:any[];
-    constructor(deque:any[]){
-        this.deque=deque;   
+    constructor(){
+        this.deque=new Array();   
     }
 
     public addFirst(element:any):void{

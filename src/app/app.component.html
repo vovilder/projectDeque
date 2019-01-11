@@ -1,13 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   
-  Add First: <input #addFirst />
+  Add First: <input #addFirst [value]="inputValue" />
   <button type="button" (click)="addFirstFunc(addFirst.value)">CREATE</button>
-  Offer First: <input #offerFirst />
+  Offer First: <input #offerFirst [value]="inputValue"/>
   <button type="button" (click)="offerFirstFunc(offerFirst.value)">CREATE</button>
-  Add Last: <input #addLast />
+  Add Last: <input #addLast [value]="inputValue"/>
   <button type="button" (click)="addLastFunc(addLast.value)">CREATE</button>
-  Offer Last: <input #offerLast />
+  Offer Last: <input #offerLast [value]="inputValue"/>
   <button type="button" (click)="offerLastFunc(offerLast.value)">CREATE</button>
+  
+</div>
+
+<div>
+  <button type="button" (click)="removeFirstFunc()">Remove First</button>
+  <button type="button" (click)="removeLastFunc()">Remove Last</button>
+  <button type="button" (click)="pollFirstFunc()">Poll First</button>
+  <button type="button" (click)="pollLastFunc()">Poll Last</button>
+  <button type="button" (click)="getFirstFunc()">Get First</button>
+  <button type="button" (click)="getLastFunc()">Get Last</button>
+  <button type="button" (click)="peekFirstFunc()">Peek First</button>
+  <button type="button" (click)="peekLastFunc()">Peek Last</button>
+</div>
+
+<div>
+  Retrieve Value: {{retrieved==null?"null":retrieved}}
+  <div *ngIf="errormsg.length>0">
+    {{errormsg}}
+  </div>
 </div>
 <!-- <router-outlet></router-outlet> -->
