@@ -1,8 +1,11 @@
 export class Deque {
-    private deque:any[];
+    public deque:any[];
     constructor(){
         this.deque=new Array();   
     }
+    // public getArray():any[]{
+    //     return this.deque;
+    // }
 
     public addFirst(element:any):void{
         this.deque.splice(0, 0, element);
