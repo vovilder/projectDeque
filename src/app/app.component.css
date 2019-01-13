@@ -1,6 +1,6 @@
 .myDequeWrapper{
     /* position: absolute; */
-    background-color: black;
+    background-color: aquamarine;
     width: 100%;
     height: stretch;
     align-items: center;
@@ -11,7 +11,7 @@
     background-color: red;
     width: fit-content;
     /* padding-left */
-    border-color: aquamarine;
+    border-color: bisque;
     border-style: solid;
     border-width: 2px;
     

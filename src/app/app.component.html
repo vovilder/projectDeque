@@ -33,6 +33,13 @@
   <div class="myDeque" *ngFor="let el of deque.deque">
     {{el}}
   </div>
-  
-
 </div>
+
+<canvas id="addFirst">
+  <script>
+    var c = document.getElementById("addFirst");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#FF0000";;
+    ctx.fillRect(0, 0, 50, 60)  
+  </script> 
+</canvas>
