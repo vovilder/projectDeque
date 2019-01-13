@@ -73,7 +73,7 @@ export class AppComponent {
   removeFirstFunc(){
     this.clearall();
     try {
-      this.pElem(0);
+      this.getFirstFunc();
       this.first = 1;
       setTimeout(()=> {
         this.retrieved=this.deque.removeFirst();
@@ -88,7 +88,7 @@ export class AppComponent {
   }
   pollFirstFunc(){
     this.clearall();
-    this.pElem(0);
+    this.peekFirstFunc();
     this.first = 1;
     setTimeout(()=> {
       this.retrieved=this.deque.pollFirst();
@@ -99,7 +99,7 @@ export class AppComponent {
   removeLastFunc(){
     this.clearall();
     try {
-      this.pElem(this.deque.deque.length - 1);
+      this.getLastFunc();
       this.last = this.deque.deque.length - 2;
       setTimeout(()=> {
         this.retrieved=this.deque.removeLast();
@@ -112,7 +112,7 @@ export class AppComponent {
 
   pollLastFunc(){
     this.clearall();
-    this.pElem(this.deque.deque.length - 1);
+    this.peekLastFunc();
     this.last = this.deque.deque.length - 2;
     setTimeout(() => {
       this.retrieved=this.deque.pollLast();
@@ -129,7 +129,7 @@ export class AppComponent {
       console.log(this.errormsg);
     }
   }
-  
+
   peekFirstFunc(){
     this.clearall();
     this.pElem(0);

@@ -1,34 +1,45 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  
-  Add First: <input #addFirst [value]="inputValue" />
-  <button type="button" (click)="addFirstFunc(addFirst.value)">CREATE</button>
-  Offer First: <input #offerFirst [value]="inputValue"/>
-  <button type="button" (click)="offerFirstFunc(offerFirst.value)">CREATE</button>
-  Add Last: <input #addLast [value]="inputValue"/>
-  <button type="button" (click)="addLastFunc(addLast.value)">CREATE</button>
-  Offer Last: <input #offerLast [value]="inputValue"/>
-  <button type="button" (click)="offerLastFunc(offerLast.value)">CREATE</button>
-  
-</div>
+<div class="container-fluid">
+  <h1 class="row d-flex justify-content-center">Deque Simulation</h1>
 
-<div>
-  <button type="button" (click)="removeFirstFunc()">Remove First</button>
-  <button type="button" (click)="removeLastFunc()">Remove Last</button>
-  <button type="button" (click)="pollFirstFunc()">Poll First</button>
-  <button type="button" (click)="pollLastFunc()">Poll Last</button>
-  <button type="button" (click)="getFirstFunc()">Get First</button>
-  <button type="button" (click)="getLastFunc()">Get Last</button>
-  <button type="button" (click)="peekFirstFunc()">Peek First</button>
-  <button type="button" (click)="peekLastFunc()">Peek Last</button>
-</div>
-
-<div>
-  Retrieve Value: {{retrieved==null?"null":retrieved}}
-  <div *ngIf="errormsg.length>0">
-    {{errormsg}}
+  <div class="row d-flex justify-content-around">
+    <div>
+      Add First: <input #addFirst [value]="inputValue" />
+      <button type="button" (click)="addFirstFunc(addFirst.value)">CREATE</button>
+    </div>
+    <div>
+      Offer First: <input #offerFirst [value]="inputValue"/>
+      <button type="button" (click)="offerFirstFunc(offerFirst.value)">CREATE</button>
+    </div>
+    <div>
+      Add Last: <input #addLast [value]="inputValue"/>
+      <button type="button" (click)="addLastFunc(addLast.value)">CREATE</button>
+    </div>
+    <div>
+      Offer Last: <input #offerLast [value]="inputValue"/>
+      <button type="button" (click)="offerLastFunc(offerLast.value)">CREATE</button>
+    </div>
+  </div>
+  <br/>
+  <div class="row d-flex justify-content-center">
+    <button type="button" (click)="removeFirstFunc()">Remove First</button>
+    <button type="button" (click)="removeLastFunc()">Remove Last</button>
+    <button type="button" (click)="pollFirstFunc()">Poll First</button>
+    <button type="button" (click)="pollLastFunc()">Poll Last</button>
+    <button type="button" (click)="getFirstFunc()">Get First</button>
+    <button type="button" (click)="getLastFunc()">Get Last</button>
+    <button type="button" (click)="peekFirstFunc()">Peek First</button>
+    <button type="button" (click)="peekLastFunc()">Peek Last</button>
+  </div>
+  <br/>
+  <div class="row d-flex justify-content-center">
+    Retrieve Value: {{retrieved==null?"null":retrieved}}
+    <div *ngIf="errormsg.length>0">
+      {{errormsg}}
+    </div>
   </div>
 </div>
+
 <div class="container-fluid">
   <div class="myDequeWrapper row">
     <div class="wrap" *ngFor="let el of deque.deque; let i = index" [ngClass]="{'first': i == first, 'last': i == last}">
