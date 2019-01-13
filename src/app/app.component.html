@@ -31,8 +31,11 @@
 </div>
 <div class="myDequeWrapper">
   <div class="myDeque" *ngFor="let el of deque.deque">
-    {{el}}
+    <!-- {{el}} -->
+    <app-custom-canvas [value]="el"></app-custom-canvas>
   </div>
-  
+  <!-- <canvas [class]="el">
+
+  </canvas> -->
 
 </div>
