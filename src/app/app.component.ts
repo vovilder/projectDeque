@@ -38,14 +38,14 @@ export class AppComponent {
     this.transitionFirst();
     this.deque.addFirst(element);
     this.last = this.deque.deque.length - 1;
-    console.log(this.deque);
+    // console.log(this.deque);
     this.clearall();
   }
   offerFirstFunc(element:any){
     this.transitionFirst();
     this.deque.offerFirst(element);
     this.last = this.deque.deque.length - 1;
-    console.log(this.deque);
+    // console.log(this.deque);
     this.clearall();
   }
 
@@ -60,20 +60,21 @@ export class AppComponent {
   addLastFunc(element:any){
     this.deque.addLast(element);
     this.transitionLast();
-    console.log(this.deque);
+    // console.log(this.deque);
     this.clearall();
   }
   offerLastFunc(element:any){
     this.deque.offerLast(element);
     this.transitionLast();
-    console.log(this.deque);
+    // console.log(this.deque);
     this.clearall();
 
   }
   removeFirstFunc(){
-    this.clearall();
     try {
-      this.getFirstFunc();
+      this.clearall();
+      this.retrieved=this.deque.getFirst();
+      this.pElem(0);
       this.first = 1;
       setTimeout(()=> {
         this.retrieved=this.deque.removeFirst();
@@ -81,13 +82,13 @@ export class AppComponent {
         this.last = this.deque.deque.length - 1;
       }, 1000);
     } catch (error) {
-      this.errormsg=new String(error).toString();
-      console.log(this.errormsg);
+      // this.errormsg=new String(error).toString();
+      this.errormsg = (<Error>error).message;
+      // console.log(this.errormsg);
     }
 
   }
   pollFirstFunc(){
-    this.clearall();
     this.peekFirstFunc();
     this.first = 1;
     setTimeout(()=> {
@@ -97,16 +98,18 @@ export class AppComponent {
     }, 1000);
   }
   removeLastFunc(){
-    this.clearall();
     try {
-      this.getLastFunc();
+      this.clearall();
+      this.retrieved=this.deque.getLast();
+      this.pElem(this.deque.deque.length - 1);
       this.last = this.deque.deque.length - 2;
       setTimeout(()=> {
         this.retrieved=this.deque.removeLast();
       }, 1000);
     } catch (error) {
-      this.errormsg=new String(error).toString();
-      console.log(this.errormsg);
+      // this.errormsg=new String(error).toString();
+      this.errormsg = (<Error>error).message;
+      // console.log(this.errormsg);
     }
   }
 
@@ -125,8 +128,9 @@ export class AppComponent {
       this.retrieved=this.deque.getFirst();
       this.pElem(0);
     } catch (error) {
-      this.errormsg=new String(error).toString();
-      console.log(this.errormsg);
+      // this.errormsg=new String(error).toString();
+      this.errormsg = (<Error>error).message;
+      // console.log(this.errormsg);
     }
   }
 
@@ -140,10 +144,11 @@ export class AppComponent {
     this.clearall();
     try {
       this.retrieved=this.deque.getLast();
-      this.pElem(this.deque.deque.length - 1)
+      this.pElem(this.deque.deque.length - 1);
     } catch (error) {
-      this.errormsg=new String(error).toString();
-      console.log(this.errormsg);
+      // this.errormsg=new String(error).toString();
+      this.errormsg = (<Error>error).message;
+      // console.log(this.errormsg);
     }
   }
   peekLastFunc(){
@@ -165,12 +170,4 @@ export class AppComponent {
       this.peek = -1;
     }, 1000);
   }
-
-  // pLast() {
-  //   this.peek = this.deque.deque.length - 1;
-  //   setTimeout(()=>{
-  //     this.peek = -1;
-  //   }, 1000);
-  // }
-
 }

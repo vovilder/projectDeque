@@ -32,12 +32,15 @@
     <button type="button" (click)="peekLastFunc()">Peek Last</button>
   </div>
   <br/>
-  <div class="row d-flex justify-content-center">
-    Retrieve Value: {{retrieved==null?"null":retrieved}}
-    <div *ngIf="errormsg.length>0">
+  <div class="row justify-content-center">
+    <div class="alert alert-danger" role="alert" *ngIf="errormsg.length > 0">
       {{errormsg}}
     </div>
+    <div class="alert alert-success" *ngIf="errormsg.length == 0">
+      Retrieve Value: {{retrieved==null?"null":retrieved}}
+    </div>
   </div>
+
 </div>
 
 <div class="container-fluid">
