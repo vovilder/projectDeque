@@ -16,28 +16,56 @@ export class AppComponent {
   // @ViewChild("offerFirst")firstoffer:ElementRef;
   // @ViewChild("offerLast")lastoffer:ElementRef;
   inputValue:any="";
+  first: number = 0;
+  last: number = 0;
+  peek: number = -1;
 
   constructor(){
     this.deque=new Deque();
   }
 
+  transitionFirst() {
+    if(this.deque.deque.length > 0) {
+      this.last = this.deque.deque.length - 1;
+      this.first = 1;
+      setTimeout(()=> {
+        this.first = 0;
+      }, 1000);
+    }
+  }
+
   addFirstFunc(element:any){
+    this.transitionFirst();
     this.deque.addFirst(element);
+    this.last = this.deque.deque.length - 1;
     console.log(this.deque);
     this.clearall();
   }
   offerFirstFunc(element:any){
+    this.transitionFirst();
     this.deque.offerFirst(element);
+    this.last = this.deque.deque.length - 1;
     console.log(this.deque);
     this.clearall();
   }
+
+  transitionLast() {
+    if(this.deque.deque.length > 0) {
+      setTimeout(()=> {
+        this.last = this.deque.deque.length - 1;
+      }, 1000);
+    }
+  }
+
   addLastFunc(element:any){
     this.deque.addLast(element);
+    this.transitionLast();
     console.log(this.deque);
     this.clearall();
   }
   offerLastFunc(element:any){
     this.deque.offerLast(element);
+    this.transitionLast();
     console.log(this.deque);
     this.clearall();
 
@@ -45,7 +73,13 @@ export class AppComponent {
   removeFirstFunc(){
     this.clearall();
     try {
-      this.retrieved=this.deque.removeFirst();
+      this.pElem(0);
+      this.first = 1;
+      setTimeout(()=> {
+        this.retrieved=this.deque.removeFirst();
+        this.first = 0;
+        this.last = this.deque.deque.length - 1;
+      }, 1000);
     } catch (error) {
       this.errormsg=new String(error).toString();
       console.log(this.errormsg);
@@ -54,32 +88,51 @@ export class AppComponent {
   }
   pollFirstFunc(){
     this.clearall();
-    this.retrieved=this.deque.pollFirst();
+    this.pElem(0);
+    this.first = 1;
+    setTimeout(()=> {
+      this.retrieved=this.deque.pollFirst();
+      this.first = 0;
+      this.last = this.deque.deque.length - 1;
+    }, 1000);
   }
   removeLastFunc(){
     this.clearall();
     try {
-      this.retrieved=this.deque.removeLast();
+      this.pElem(this.deque.deque.length - 1);
+      this.last = this.deque.deque.length - 2;
+      setTimeout(()=> {
+        this.retrieved=this.deque.removeLast();
+      }, 1000);
     } catch (error) {
       this.errormsg=new String(error).toString();
       console.log(this.errormsg);
     }
   }
+
   pollLastFunc(){
     this.clearall();
-    this.retrieved=this.deque.pollLast();
+    this.pElem(this.deque.deque.length - 1);
+    this.last = this.deque.deque.length - 2;
+    setTimeout(() => {
+      this.retrieved=this.deque.pollLast();
+    }, 1000);
   }
+
   getFirstFunc(){
     this.clearall();
     try {
       this.retrieved=this.deque.getFirst();
+      this.pElem(0);
     } catch (error) {
       this.errormsg=new String(error).toString();
       console.log(this.errormsg);
     }
   }
+  
   peekFirstFunc(){
     this.clearall();
+    this.pElem(0);
     this.retrieved=this.deque.peekFirst();
 
   }
@@ -87,6 +140,7 @@ export class AppComponent {
     this.clearall();
     try {
       this.retrieved=this.deque.getLast();
+      this.pElem(this.deque.deque.length - 1)
     } catch (error) {
       this.errormsg=new String(error).toString();
       console.log(this.errormsg);
@@ -94,6 +148,7 @@ export class AppComponent {
   }
   peekLastFunc(){
     this.clearall();
+    this.pElem(this.deque.deque.length - 1);
     this.retrieved=this.deque.peekLast();
 
   }
@@ -101,6 +156,21 @@ export class AppComponent {
     this.errormsg="";
     this.retrieved="";
     this.inputValue=new String();
-    
+  
   }
+
+  pElem(index: number) {
+    this.peek = index;
+    setTimeout(()=>{
+      this.peek = -1;
+    }, 1000);
+  }
+
+  // pLast() {
+  //   this.peek = this.deque.deque.length - 1;
+  //   setTimeout(()=>{
+  //     this.peek = -1;
+  //   }, 1000);
+  // }
+
 }

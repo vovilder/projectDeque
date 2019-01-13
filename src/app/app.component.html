@@ -29,17 +29,12 @@
     {{errormsg}}
   </div>
 </div>
-<div class="myDequeWrapper">
-  <div class="myDeque" *ngFor="let el of deque.deque">
-    {{el}}
+<div class="container-fluid">
+  <div class="myDequeWrapper row">
+    <div class="wrap" *ngFor="let el of deque.deque; let i = index" [ngClass]="{'first': i == first, 'last': i == last}">
+      <div class="myDeque" [ngClass]="{'pick': i == peek}">
+        {{el==null?"null":el}}
+      </div>
+    </div>
   </div>
 </div>
-
-<canvas id="addFirst">
-  <script>
-    var c = document.getElementById("addFirst");
-    var ctx = c.getContext("2d");
-    ctx.fillStyle = "#FF0000";;
-    ctx.fillRect(0, 0, 50, 60)  
-  </script> 
-</canvas>

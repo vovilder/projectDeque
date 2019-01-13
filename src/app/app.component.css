@@ -1,19 +1,40 @@
 .myDequeWrapper{
     /* position: absolute; */
     background-color: aquamarine;
-    width: 100%;
+    /* width: 100%;
     height: stretch;
-    align-items: center;
+    align-items: center; */
 
 }
 .myDeque{
     color: white;
     background-color: red;
     width: fit-content;
-    /* padding-left */
+    padding-left: 5px;
+    padding-right: 5px;
     border-color: bisque;
     border-style: solid;
     border-width: 2px;
-    
+    margin: 5px;
+    align-items: center;
+}
 
+.wrap{
+    height: 100%;
+}
+
+.wrap::before {
+    content: "\00a0";
+}
+
+.myDeque.pick {
+    background-color: pink;
+}
+
+.first::before {
+    content: "First";
+}
+
+.last::after {
+    content: "Last";
 }
