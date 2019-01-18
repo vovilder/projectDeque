@@ -157,6 +157,15 @@ export class AppComponent {
     this.retrieved=this.deque.peekLast();
 
   }
+
+  randomFunc(){
+    for(let i = 0; i<10; i++){
+      const r = Math.floor(Math.random() * 10);
+      this.addFirstFunc(r); 
+    }
+    
+  }
+  
   clearall(){
     this.errormsg="";
     this.retrieved="";
