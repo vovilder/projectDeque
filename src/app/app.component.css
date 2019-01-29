@@ -32,9 +32,9 @@
 }
 
 .first::before {
-    content: "First";
+    content: "Front";
 }
 
 .last::after {
-    content: "Last";
+    content: "Rear";
 }
